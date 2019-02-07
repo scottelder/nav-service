@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import StaticNav from './components/StaticNav.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,8 +10,14 @@ class App extends React.Component {
     }
   }
   render(){
+    document.body.style.margin = "0";
+    const pageStyle = {
+      overflow: "hidden",
+      margin: 0,
+    };
     return(
-      <div>
+      <div style={pageStyle}>
+        <StaticNav />
         I am a React App. Have fun!
       </div>
     )
