@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import StaticNav from './components/StaticNav.jsx';
+import BrowserRouter from 'react-router-dom'; //used to route to different compononents without refresh -- stretch add
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      someState: ''
+      links: [],
     }
   }
   render(){
@@ -17,7 +18,7 @@ class App extends React.Component {
     };
     return(
       <div style={pageStyle}>
-        <StaticNav />
+        <StaticNav links={this.state.links}/>
         I am a React App. Have fun!
       </div>
     )

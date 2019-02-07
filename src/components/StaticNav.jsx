@@ -21,7 +21,7 @@ class StaticNav extends React.Component {
       fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
       // fontFamily: `"Roboto"`,
       fontSize: "22px"
-    }
+    } 
     return(
       <header style={navStyle}>
         <a style={buttStyle}>HOME</a>
@@ -30,6 +30,7 @@ class StaticNav extends React.Component {
         <a style={buttStyle}>THERE</a>
         <a style={buttStyle}>WHENCE</a>
         <a style={buttStyle}>THENCE</a>
+        <StaticNavList />
       </header>
     )
   }
