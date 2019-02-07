@@ -8,10 +8,12 @@ class App extends React.Component {
       someState: ''
     }
   }
-  render() {
-    <div>
-      I am a React App. Have fun!
-    </div>
+  render(){
+    return(
+      <div>
+        I am a React App. Have fun!
+      </div>
+    )
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'))
