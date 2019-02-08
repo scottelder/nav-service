@@ -12,9 +12,8 @@ const mockSchema = new Schema({
   description: String,
   price: Number
 })
-  
-const Photo = mongoose.model('Photo', mockSchema);
 
+const Photo = mongoose.model('Photo', mockSchema);
 
 const insert = (adventures, callback) => {
   if (Array.isArray(adventures)) {
