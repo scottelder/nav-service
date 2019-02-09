@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       elements: ['AIR', 'EARTH', 'FIRE', 'WATER', 'BLOOD', 'ANIMA'],
-      biomes: [],
+      biomes: ['plains', 'swamp', 'forest', 'jungle', 'ocean', 'volcano', 'atmosphere', 'space'],
       adventures: [],
       showList: false,
       showEntry: false

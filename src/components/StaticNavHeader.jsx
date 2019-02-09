@@ -1,4 +1,5 @@
 import React from 'react';
+import StaticNavList from './StaticNavList.jsx'
 
 class StaticNavHeader extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class StaticNavHeader extends React.Component {
         onMouseLeave={() => this.setState({renderDD: false})}
         >
           {this.props.element}
-          {this.state.renderDD ? ' IT WORKED' : null}
+          {this.state.renderDD ? <StaticNavList biomes={this.props.biomes} />  : null}
         </a>
     ) 
   }
