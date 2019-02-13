@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, '/../dist')));
 
-app.post('/populate', (req, res) => {
-  let payload = mockData.data.events;
+app.post('/insert', (req, res) => {
+  let payload = req.body;
   console.log('made it to request');
   const postCB = (err, data) => {
     if (err) { console.log(err, 'error in insert')}

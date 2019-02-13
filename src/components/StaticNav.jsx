@@ -4,8 +4,10 @@ import StaticNavHeader from './StaticNavHeader.jsx';
 
 const StaticNav = (props) => {
   const navStyle = {
+    display: "flex",
     backgroundColor: "#242121",
     width: "100%",
+    height: "2%",
     margin: "0 auto",
     padding: "30px"
   }
@@ -15,11 +17,7 @@ const StaticNav = (props) => {
           <StaticNavHeader 
             key={index}
             element={element} 
-            biomes={props.biomes} 
-            adventures={props.adventures}
-            showList={props.showList}
-            showEntry={props.showEntry}
-            toggleList={props.toggleList}
+            {...props}
           />
       ))}
       </header>

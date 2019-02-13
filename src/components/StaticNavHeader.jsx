@@ -1,33 +1,47 @@
 import React from 'react';
 import StaticNavList from './StaticNavList.jsx'
 
+// Style choices below
+const flexStyle = {
+  flexGrow : "1"
+}
+
+const buttStyle = {
+  flexGrow: "1",
+  color: "white",
+  fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
+  fontSize: "22px",
+  cursor: "pointer",
+  // transition: `color 195ms ease-in 0s`,
+  transitionProperty: `color`,
+  transitionDuration: `200ms`,
+  transitionTiming: `ease-in`,
+  transitionDelay: 0
+}
+
+const transStyle = {...buttStyle};
+transStyle.color = "#d9b310";
+
 class StaticNavHeader extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      renderDD: false
+      renderDD: false,
+      style: buttStyle
     }
   }
-
   render() {
-    const buttStyle = {
-      color: "white",
-      padding: "2.5%",
-      fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
-      // fontFamily: `"Roboto"`,
-      fontSize: "22px",
-      cursor: "pointer"
-    }
     return(
-        <a style={buttStyle} 
-        onMouseEnter={() => this.setState({renderDD: true})}
-        onMouseLeave={() => this.setState({renderDD: false})}
+      <div style={flexStyle}>
+        <a style={this.state.style}
+        onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})}
+        onMouseLeave={() => this.setState({style: buttStyle})}
         >
           {this.props.element}
-          {this.state.renderDD ? <StaticNavList biomes={this.props.biomes} />  : null}
         </a>
+        <div>{this.state.renderDD ? <StaticNavList biomes={this.props.biomes} />  : null}</div>
+      </div>
     ) 
   }
 }
-
 export default StaticNavHeader;
