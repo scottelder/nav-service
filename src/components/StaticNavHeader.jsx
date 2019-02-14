@@ -27,21 +27,39 @@ class StaticNavHeader extends React.Component {
     super(props)
     this.state = {
       renderDD: false,
-      style: buttStyle
+      style: buttStyle,
+      adventures: []
     }
   }
+  categorizeAdventures() {
+    const categorizedAdventures = [];
+    console.log(this.props.adventures, 'props.adventures')
+    this.props.adventures.forEach((adventure) => {
+      if (adventure.catagory === this.props.category) { //sic
+        categorizedAdventures.push(adventure);
+      }
+    })
+    console.log(categorizedAdventures)
+    this.setState({adventures: categorizedAdventures})
+  }
+  
+  componentDidMount() {
+    setTimeout(this.categorizeAdventures.bind(this), 250);
+  }
+
   render() {
     return(
       <div style={flexStyle}>
         <a style={this.state.style}
-        onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})}
-        onMouseLeave={() => this.setState({style: buttStyle})}
+          onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})}
+          onMouseLeave={() => this.setState({style: buttStyle})}
         >
-          {this.props.element}
+        {this.props.category}
         </a>
-        <div>{this.state.renderDD ? <StaticNavList biomes={this.props.biomes} />  : null}</div>
+        <div>{this.state.renderDD ? <StaticNavList adventures={this.state.adventures} />  : null}</div>
       </div>
     ) 
   }
 }
 export default StaticNavHeader;
+

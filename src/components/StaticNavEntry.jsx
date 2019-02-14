@@ -14,7 +14,7 @@ const StaticNavEntry = (props) => {
     padding: "4px"
   }
   return(
-  <li style={itemStyle}>{props.biome}</li>
+  <li style={itemStyle}>{props.adventure.title}</li>
   )
 }
 

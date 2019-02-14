@@ -1,5 +1,5 @@
 import React from 'react';
-// import {events} from '../../mockdata.js';
+import {data} from '../../mockdata.js'
 import StaticNavHeader from './StaticNavHeader.jsx';
 
 const StaticNav = (props) => {
@@ -13,17 +13,19 @@ const StaticNav = (props) => {
   }
   return (
       <header style={navStyle}>
-      {props.elements.map((element, index) => (
-          <StaticNavHeader 
-            key={index}
-            element={element} 
-            {...props}
-          />
-      ))}
+      {console.log(props)}
+        {props.categories.length 
+        ? props.categories.map((entry, index) => (
+            <StaticNavHeader 
+              key={entry.id}
+              category={entry.catagory} // sic.
+              {...props}
+            />
+          ))
+        : null }
+  {/* <a onClick={() => (console.log(data.events), props.populate(data))}>INSERT!</a> */}
       </header>
   )
 }
 
 export default StaticNav;
-
-{/* <a style={buttStyle} onClick={() => props.populate()}>INSERT!</a> */}

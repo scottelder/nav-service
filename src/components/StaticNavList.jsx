@@ -10,7 +10,9 @@ const StaticNavList = (props) => {
   }
   return (
     <ul style={listStyle}>
-      {props.biomes.map((biome, index) => <StaticListEntry key={index} biome={biome}/>)}
+      {props.adventures.length  
+      ? props.adventures.map((adventure, index) => <StaticListEntry key={index} adventure={adventure}/>)
+      : null }
     </ul>
   )
 }

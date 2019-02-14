@@ -8,19 +8,30 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      elements: ['AIR', 'EARTH', 'FIRE', 'WATER', 'BLOOD', 'ANIMA'],
-      biomes: ['plains', 'swamp', 'forest', 'jungle', 'ocean', 'volcano', 'atmosphere', 'space'],
+      categories: [],
       adventures: [],
       showList: false,
       showEntry: false
     }
   }
+
   populate(records) {
-    Axios.post('/populate')
+    Axios.post('/populate', records)
     .then(() => console.log('Successfully populated database'))
     .catch(() => console.log('Failed to populated database'));
     //add this method as a prop to <StaticNav /> if you want to reseed the database
   }
+  componentDidMount() {
+
+    Axios.get('/headers')
+      .then((res) => this.setState({ categories: res.data }) ) // <--------sic.
+      .catch((err) => console.log(err) );
+
+    Axios.get('/adventures')
+      .then((res) => this.setState({ adventures: res.data }) )
+      .catch((err) => console.log(err) )
+  }
+
   toggleList() {
     this.state.showList ? this.setState({showList: false}) : this.setState({showList: true})
   }
@@ -34,11 +45,8 @@ class App extends React.Component {
     return(
       <div style={pageStyle}>
         <StaticNav 
-          adventures={this.state.adventures} 
-          elements={this.state.elements} 
-          biomes={this.state.biomes}
-          showList={this.state.showList}
-          showEntry={this.state.showEntry} 
+            {...this.state}
+            // populate={this.populate}
           toggleList={this.toggleList.bind(this)}
         />
         I am a React App. Have fun!
