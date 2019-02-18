@@ -33,13 +33,11 @@ class StaticNavHeader extends React.Component {
   }
   categorizeAdventures() {
     const categorizedAdventures = [];
-    console.log(this.props.adventures, 'props.adventures')
     this.props.adventures.forEach((adventure) => {
       if (adventure.catagory === this.props.category) { //sic
         categorizedAdventures.push(adventure);
       }
     })
-    console.log(categorizedAdventures)
     this.setState({adventures: categorizedAdventures})
   }
   
@@ -51,12 +49,14 @@ class StaticNavHeader extends React.Component {
     return(
       <div style={flexStyle}>
         <a style={this.state.style}
-          onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})}
+          onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})} // <--- refactor this to use a global state so only one DD can be open at a time
           onMouseLeave={() => this.setState({style: buttStyle})}
         >
         {this.props.category}
         </a>
-        <div>{this.state.renderDD ? <StaticNavList adventures={this.state.adventures} />  : null}</div>
+        <div>
+          {this.state.renderDD ? <StaticNavList adventures={this.state.adventures} adventureSelector={this.props.adventureSelector} />  : null}
+        </div> 
       </div>
     ) 
   }

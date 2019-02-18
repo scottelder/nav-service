@@ -14,7 +14,9 @@ const StaticNavEntry = (props) => {
     padding: "4px"
   }
   return(
-  <li style={itemStyle}>{props.adventure.title}</li>
+    <li style={itemStyle} onClick={(e) => props.adventureSelector(props.adventure.id)}>
+      {props.adventure.title}
+    </li>
   )
 }
 

@@ -20,12 +20,16 @@ const StaticNav = (props) => {
               key={entry.id}
               category={entry.catagory} // sic.
               {...props}
+          /* What if we passed down a 'permission' prop?
+          If null, don't render the DD menu, if anything else, render it.
+          Could it be an object here with keys equal to IDs of the header buttons? */
             />
           ))
         : null }
-  {/* <a onClick={() => (console.log(data.events), props.populate(data))}>INSERT!</a> */}
       </header>
   )
 }
 
 export default StaticNav;
+
+{/* <a onClick={() => (console.log(data.events), props.populate(data))}>INSERT!</a> */}
