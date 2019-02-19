@@ -15,13 +15,13 @@ class App extends React.Component {
     }
   }
 
+  // Add this method as a prop to <StaticNav /> if you want to reseed the database
   populate(records) {
     Axios.post('/populate', records)
     .then(() => console.log('Successfully populated database'))
     .catch(() => console.log('Failed to populated database'));
-    //add this method as a prop to <StaticNav /> if you want to reseed the database
   }
-  adventureSelector(target) {
+  selectAdventure(target) {
     console.log(target);
   }
   componentDidMount() {
@@ -50,7 +50,7 @@ class App extends React.Component {
         <StaticNav 
             {...this.state}
             // populate={this.populate}
-            adventureSelector={this.adventureSelector.bind(this)}
+            selectAdventure={this.selectAdventure.bind(this)}
             toggleList={this.toggleList.bind(this)}
         />
         I am a React App. Have fun!

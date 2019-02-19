@@ -39,27 +39,30 @@ class StaticNavHeader extends React.Component {
       }
     })
     this.setState({adventures: categorizedAdventures})
-  }
+  };
+
+  fadeListOut() {
+    setTimeout(() => this.setState({renderDD: false}), 300);
+  };
   
   componentDidMount() {
     setTimeout(this.categorizeAdventures.bind(this), 250);
-  }
+  };
 
   render() {
     return(
       <div style={flexStyle}>
         <a style={this.state.style}
-          onMouseEnter={() => this.setState({renderDD: !this.state.renderDD, style: transStyle})} // <--- refactor this to use a global state so only one DD can be open at a time
-          onMouseLeave={() => this.setState({style: buttStyle})}
+          onMouseEnter={() => { this.setState({renderDD: !this.state.renderDD, style: transStyle}) }}
+          onMouseLeave={() => { this.setState({style: buttStyle})}}
         >
         {this.props.category}
         </a>
         <div>
-          {this.state.renderDD ? <StaticNavList adventures={this.state.adventures} adventureSelector={this.props.adventureSelector} />  : null}
+          {this.state.renderDD ? <StaticNavList fadeListOut={this.fadeListOut.bind(this)} adventures={this.state.adventures} selectAdventure={this.props.selectAdventure} />  : null}
         </div> 
       </div>
     ) 
   }
 }
 export default StaticNavHeader;
-
