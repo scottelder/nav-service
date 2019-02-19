@@ -1,7 +1,8 @@
 module.exports = {
   apps: [{
     name: 'nav-service',
-    script: './index.js'
+    script: './index.js',
+    env: './.env'
   }],
   deploy: {
     production: {
@@ -11,7 +12,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:selder18/nav-service.git',
       path: '/home/ubuntu/nav-service',
-      'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
+      'post-deploy': 'npm install && npm start && npm run restart'
     }
   }
 }
