@@ -1,8 +1,7 @@
 module.exports = {
   apps: [{
     name: 'nav-service',
-    script: './index.js',
-    env: './.env'
+    script: './index.js'  
   }],
   deploy: {
     production: {

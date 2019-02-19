@@ -8,7 +8,8 @@
     "start-deploy": "webpack -p",
     "env": "node -r dotenv/config ./db/index.js",
     "server": "nodemon ./server/index.js",
-    "deploy": "pm2 deploy ecosystem.config.js production",
+    "deploy-setup": "pm2 deploy ecosystem.config.js production setup",
+    "deploy": "pm2 deploy ecosystem.config.js production --force",
     "restart": "pm2 startOrRestart ecosystem.config.js"
   },
   "keywords": [],
