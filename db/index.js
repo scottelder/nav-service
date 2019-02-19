@@ -1,9 +1,8 @@
 const path = require('path');
-require('dotenv').config({path: path.join(__dirname, "../.env")});
+require('dotenv').config(path.join(__dirname, "../.env"));
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-let URI = process.env.DB_URI;
-mongoose.connect(URI);
+mongoose.connect(process.env.DB_URI);
 
 const adventureSchema = new Schema({
   id: Number,

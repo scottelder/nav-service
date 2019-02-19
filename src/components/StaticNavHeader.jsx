@@ -42,11 +42,11 @@ class StaticNavHeader extends React.Component {
   };
 
   fadeListOut() {
-    setTimeout(() => this.setState({renderDD: false}), 300);
+    setTimeout(() => this.setState({renderDD: false}), 300)
   };
   
   componentDidMount() {
-    setTimeout(this.categorizeAdventures.bind(this), 250);
+    setTimeout(this.categorizeAdventures.bind(this), 250)
   };
 
   render() {
