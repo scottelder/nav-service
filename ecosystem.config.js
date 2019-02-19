@@ -12,7 +12,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:selder18/nav-service.git',
       path: '/home/ubuntu/nav-service',
-      'post-deploy': 'npm install && npm start && npm run restart'
+      'post-deploy': 'npm install && npm run start-deploy && npm run restart'
     }
   }
 }
