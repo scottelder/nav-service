@@ -1,7 +1,6 @@
 import React from 'react';
 import StaticNavList from './StaticNavList.jsx'
 
-// Style choices below
 const flexStyle = {
   flexGrow : "1"
 }
@@ -31,6 +30,7 @@ class StaticNavHeader extends React.Component {
       adventures: []
     }
   }
+
   // This function takes the adventures passed in from the Axios call
   // in the App component and arranges them by category.
   categorizeAdventures() {
@@ -45,7 +45,7 @@ class StaticNavHeader extends React.Component {
   // This function is SUPPOSED TO reduce opacity of the DD menu over
   // time and then stop rendering them once the opacity reaches 0.
   fadeListOut() {
-
+    this.setState({ renderDD: false })
   };
 
   componentDidMount() {
@@ -54,19 +54,29 @@ class StaticNavHeader extends React.Component {
     setTimeout(this.categorizeAdventures.bind(this), 250)
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.renderFlip !== prevProps.renderFlip) {
+      this.setState({renderDD: false});
+    }
+  }
+
   render() {
     return(
       <div style={flexStyle}>
         <a style={this.state.style}
-          onMouseEnter={() => { this.setState({renderDD: !this.state.renderDD, style: transStyle}) }}
-          onMouseLeave={() => { this.setState({style: buttStyle})}}
+          onMouseEnter={() => {
+            this.props.unRender()
+            this.setState({style: transStyle})
+            setTimeout(() => this.setState({renderDD: true}).bind(this), 0)
+          }}
+          onMouseLeave={() => this.setState({style: buttStyle}) }
         >
         {this.props.category}
         </a>
         <div>
           { this.state.renderDD 
           ? <StaticNavList 
-            fadeListOut={this.fadeListOut.bind(this)} 
+            fadeListOut={this.fadeListOut.bind(this)}
             adventures={this.state.adventures} 
             selectAdventure={this.props.selectAdventure} />  
           : null }

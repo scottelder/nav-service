@@ -15,7 +15,7 @@ const StaticNavList = (props) => {
   vanishStyle.opacity = 0;
 
   return (
-    <ul style={listStyle}>
+    <ul style={listStyle} onMouseLeave={() => props.fadeListOut()}>
     {props.adventures.length  
       ? props.adventures.map((adventure, index) => <StaticListEntry key={index} adventure={adventure} selectAdventure={props.selectAdventure}/>)
       : null }

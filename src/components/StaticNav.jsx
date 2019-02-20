@@ -10,28 +10,27 @@ const navStyle = {
   margin: "0 auto",
   padding: "30px"
 }
-
 class StaticNav extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      renderDD: false
+      renderFlip : false
     }
   }
-
+  unRender() {
+    this.setState({renderFlip: !this.state.renderFlip})
+  }
   render() {
-    return(
+   return (
       <header style={navStyle}>
-      {console.log(this.props)}
         {this.props.categories.length 
         ? this.props.categories.map((entry, index) => (
-            <StaticNavHeader 
+            <StaticNavHeader
+              renderFlip={this.state.renderFlip}
+              unRender={this.unRender.bind(this)} 
               key={entry.id}
               category={entry.catagory} // sic.
               {...this.props}
-          /* What if we passed down a 'permission' prop?
-          If null, don't render the DD menu, if anything else, render it.
-          Could it be an object here with keys equal to IDs of the header buttons? */
             />
           ))
         : null }
