@@ -13,7 +13,8 @@ const StaticNavEntry = (props) => {
     transitionDelay: 0,
     padding: "4px"
   }
-  const transStyle = {...buttStyle};
+  
+  const transStyle = {...itemStyle};
   transStyle.color = "#d9b310";
 
   return(

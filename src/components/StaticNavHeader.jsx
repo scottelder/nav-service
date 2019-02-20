@@ -67,7 +67,7 @@ class StaticNavHeader extends React.Component {
           onMouseEnter={() => {
             this.props.unRender()
             this.setState({style: transStyle})
-            setTimeout(() => this.setState({renderDD: true}).bind(this), 0)
+            setTimeout(() => this.setState({renderDD: true}), 0)
           }}
           onMouseLeave={() => this.setState({style: buttStyle}) }
         >
