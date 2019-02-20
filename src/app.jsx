@@ -22,9 +22,10 @@ class App extends React.Component {
   //   .then(() => console.log('Successfully populated database'))
   //   .catch(() => console.log('Failed to populated database'));
   // }
-  // selectAdventure(target) {
-  //   console.log(target);
-  // }
+  
+  selectAdventure(target) {
+    console.log(target);
+  }
 
   componentDidMount() {
     Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/headers')
