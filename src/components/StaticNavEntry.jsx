@@ -13,6 +13,8 @@ const StaticNavEntry = (props) => {
     transitionDelay: 0,
     padding: "4px"
   }
+  const transStyle = {...buttStyle};
+  transStyle.color = "#d9b310";
 
   return(
     <li style={itemStyle} onClick={(e) => props.selectAdventure(props.adventure.id)}>
