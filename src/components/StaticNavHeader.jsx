@@ -80,7 +80,7 @@ class StaticNavHeader extends React.Component {
             adventures={this.state.adventures} 
             selectAdventure={this.props.selectAdventure} />  
           : null }
-        </div> 
+        </div>
       </div>
     ) 
   }
