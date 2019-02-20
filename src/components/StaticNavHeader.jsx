@@ -31,6 +31,8 @@ class StaticNavHeader extends React.Component {
       adventures: []
     }
   }
+  // This function takes the adventures passed in from the Axios call
+  // in the App component and arranges them by category.
   categorizeAdventures() {
     const categorizedAdventures = [];
     this.props.adventures.forEach((adventure) => {
@@ -40,12 +42,15 @@ class StaticNavHeader extends React.Component {
     })
     this.setState({adventures: categorizedAdventures})
   };
-
+  // This function is SUPPOSED TO reduce opacity of the DD menu over
+  // time and then stop rendering them once the opacity reaches 0.
   fadeListOut() {
-    setTimeout(() => this.setState({renderDD: false}), 300)
+
   };
-  
+
   componentDidMount() {
+    // This invocation is delayed to give the asynchronous call to the
+    // database a chance to complete before running itself.
     setTimeout(this.categorizeAdventures.bind(this), 250)
   };
 
@@ -59,7 +64,12 @@ class StaticNavHeader extends React.Component {
         {this.props.category}
         </a>
         <div>
-          {this.state.renderDD ? <StaticNavList fadeListOut={this.fadeListOut.bind(this)} adventures={this.state.adventures} selectAdventure={this.props.selectAdventure} />  : null}
+          { this.state.renderDD 
+          ? <StaticNavList 
+            fadeListOut={this.fadeListOut.bind(this)} 
+            adventures={this.state.adventures} 
+            selectAdventure={this.props.selectAdventure} />  
+          : null }
         </div> 
       </div>
     ) 
