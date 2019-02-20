@@ -8,7 +8,7 @@ class StaticNav extends React.Component {
     this.state = {
       renderFlip : false
     }
-      // Stylings:
+    // Stylings:
     this.navStyle = {
       display: "flex",
       backgroundColor: "#242121",
@@ -21,7 +21,11 @@ class StaticNav extends React.Component {
       flexGrow: `${this.props.categories.length}`
     }
     this.cartStyle = {
-      flexGrow: 1
+      flexGrow: 1,
+      color: "white",
+      fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
+      fontSize: "22px",
+      cursor: "pointer",
     }
   }
 
@@ -43,7 +47,7 @@ class StaticNav extends React.Component {
               />
             )
           : null }
-        <div style={this.cartStyle}>Test</div>
+        <div style={this.cartStyle}>Shopping Cart</div>
       </header>
     )
   }
