@@ -22,8 +22,8 @@ class App extends React.Component {
   //   .catch(() => console.log('Failed to populated database'));
   // }
 
-  selectAdventure(target) {
-    const clickEvent = new CustomEvent('changeID', { detail: target });
+  selectAdventure(target, category) {
+    const clickEvent = new CustomEvent('changeID', { detail: [target, category] });
     window.dispatchEvent(clickEvent);
     console.log(clickEvent, 'OUTGOING EVENT');
   }
