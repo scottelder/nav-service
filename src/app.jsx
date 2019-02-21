@@ -25,7 +25,7 @@ class App extends React.Component {
   selectAdventure(target) {
     const clickEvent = new CustomEvent('changeID', { detail: target });
     window.dispatchEvent(clickEvent);
-    console.log(clickEvent);
+    console.log(clickEvent, 'OUTGOING EVENT');
   }
 
   componentDidMount() {
