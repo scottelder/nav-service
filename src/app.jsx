@@ -54,7 +54,6 @@ class App extends React.Component {
             selectAdventure={this.selectAdventure.bind(this)}
             toggleList={this.toggleList.bind(this)}
         />
-        I am a React App. Have fun!
       </div>
     )
   }
