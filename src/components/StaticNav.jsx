@@ -35,11 +35,11 @@ class StaticNav extends React.Component {
   }
   componentDidMount() {
     window.addEventListener('addToCart', (event) => {
-      console.log(event.detail);
-      this.setState({cartCount: this.state.cartCount++})
+      console.log(event.detail, 'event.detail');
+      this.setState({cartCount: this.state.cartCount + 1})
     }, false)
     window.addEventListener('removeFromCart', (event) => {
-      this.setState({cartCount: this.state.cartCount--})
+      this.setState({cartCount: this.state.cartCount - 1})
     }, false)
   }
   render() {
