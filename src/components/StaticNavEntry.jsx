@@ -19,7 +19,7 @@ const StaticNavEntry = (props) => {
 
   return(
     <li style={itemStyle} onClick={(e) => props.selectAdventure(props.adventure.id, props.adventure.catagory /* sic */)}> 
-      {toUpperCase(props.adventure.title)}
+      {props.adventure.title.toUpperCase()}
     </li>
   )
 }
