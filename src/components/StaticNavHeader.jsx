@@ -74,7 +74,7 @@ class StaticNavHeader extends React.Component {
             setTimeout(() => this.setState({renderDD: true}), 0)
           }}
         >
-        {this.props.category}
+        {this.props.category.toUpperCase()}
         </a>
         <div>
           { this.state.renderDD 
