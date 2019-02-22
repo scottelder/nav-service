@@ -35,6 +35,7 @@ class App extends React.Component {
     Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/adventures')
       .then((res) => this.setState({ adventures: res.data }) )
       .catch((err) => console.log(err))
+
   }
 
   toggleList() {
