@@ -35,7 +35,7 @@ class StaticNav extends React.Component {
   }
   componentDidMount() {
     window.addEventListener('addToCart', (event) => {
-      console.log(event.detail, 'event.detail');
+      //event.detail is item ID
       this.setState({cartCount: this.state.cartCount + 1})
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
     }, false)
