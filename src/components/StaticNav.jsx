@@ -23,7 +23,7 @@ class StaticNav extends React.Component {
     this.cartStyle = {
       flexGrow: 1,
       color: "white",
-      fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
+      fontFamily: `BlinkMacSystemFont, Roboto, Droid Sans, Segoe UI, Helvetica, Arial, sans-serif`,
       fontSize: "22px",
       cursor: "pointer",
     }

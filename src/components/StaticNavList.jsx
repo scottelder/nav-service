@@ -11,8 +11,6 @@ const StaticNavList = (props) => {
     transitionTiming: `ease-in`,
     transitionDelay: 0,
   }
-  const vanishStyle = {...listStyle};
-  vanishStyle.opacity = 0;
 
   return (
     <ul style={listStyle} onMouseLeave={() => props.fadeListOut()}>
