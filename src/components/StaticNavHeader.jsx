@@ -13,7 +13,7 @@ const buttStyle = {
   cursor: "pointer",
   // transition: `color 195ms ease-in 0s`,
   transitionProperty: `color`,
-  transitionDuration: `200ms`,
+  transitionDuration: `150ms`,
   transitionTiming: `ease-in`,
   transitionDelay: 0
 }
@@ -61,6 +61,7 @@ class StaticNavHeader extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.renderFlip !== prevProps.renderFlip) {
       this.setState({renderDD: false});
+      this.setState({style: buttStyle});
     }
   }
 
@@ -70,8 +71,7 @@ class StaticNavHeader extends React.Component {
         <a style={this.state.style}
           onMouseEnter={() => {
             this.props.unRender()
-            this.setState({style: transStyle})
-            setTimeout(() => this.setState({renderDD: true}), 0)
+            setTimeout(() => this.setState({renderDD: true, style: transStyle}), 0)
           }}
         >
         {this.props.category.toUpperCase()}
