@@ -26,7 +26,7 @@ class StaticNav extends React.Component {
     this.state = {
       renderFlip : false,
       cartCount: 0,
-      cartStyle: this.cartCount ? fullCartStyle : cartStyle, // This is a good line to look at for bugs, especially the evaluation.
+      cartStyle: cartStyle, // This is a good line to look at for bugs, especially the evaluation.
     }
   }
   // Methods:
@@ -36,10 +36,10 @@ class StaticNav extends React.Component {
   componentDidMount() {
     window.addEventListener('addToCart', (event) => {
       console.log(event.detail, 'event.detail');
-      this.setState({cartCount: this.state.cartCount + 1})
+      this.setState({cartCount: this.state.cartCount + 1, cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle})
     }, false)
     window.addEventListener('removeFromCart', (event) => {
-      this.setState({cartCount: this.state.cartCount - 1})
+      this.setState({cartCount: this.state.cartCount - 1, cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle})
     }, false)
   }
   render() {
