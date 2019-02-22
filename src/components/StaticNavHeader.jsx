@@ -79,7 +79,7 @@ class StaticNavHeader extends React.Component {
         <div>
           { this.state.renderDD 
           ? <StaticNavList
-            unGlow={this.props.unGlow.bind(this)}
+            unGlow={this.unGlow.bind(this)}
             fadeListOut={this.fadeListOut.bind(this)}
             adventures={this.state.adventures} 
             selectAdventure={this.props.selectAdventure} />  
