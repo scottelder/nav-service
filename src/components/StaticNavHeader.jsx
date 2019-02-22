@@ -69,13 +69,13 @@ class StaticNavHeader extends React.Component {
             this.setState({style: transStyle})
             setTimeout(() => this.setState({renderDD: true}), 0)
           }}
-          onMouseLeave={() => this.setState({style: buttStyle}) }
         >
         {this.props.category}
         </a>
         <div>
           { this.state.renderDD 
-          ? <StaticNavList 
+          ? <StaticNavList
+            unGlow={this.setState({style:buttStyle}).bind(this)}
             fadeListOut={this.fadeListOut.bind(this)}
             adventures={this.state.adventures} 
             selectAdventure={this.props.selectAdventure} />  

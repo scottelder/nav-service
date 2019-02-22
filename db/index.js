@@ -49,7 +49,7 @@ const findAdventures = (callback) => {
   })
 };
 
-//Finds all headers and returns their id and title.
+//Finds all headers and returns their id, their catagory (sic), and title.
 const findHeaders = (callback) => {
   Header.find({}).select('id catagory -_id').exec((err, data) => { // sic.
     if (err) callback(err, null)
