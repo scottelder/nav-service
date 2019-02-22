@@ -48,6 +48,10 @@ class StaticNavHeader extends React.Component {
     this.setState({ renderDD: false })
   };
 
+  unGlow() {
+    this.setState({ style: buttStyle })
+  }
+
   componentDidMount() {
     // This invocation is delayed to give the asynchronous call to the
     // database a chance to complete before running itself.
@@ -75,7 +79,7 @@ class StaticNavHeader extends React.Component {
         <div>
           { this.state.renderDD 
           ? <StaticNavList
-            unGlow={this.setState({style:buttStyle}).bind(this)}
+            unGlow={this.props.unGlow.bind(this)}
             fadeListOut={this.fadeListOut.bind(this)}
             adventures={this.state.adventures} 
             selectAdventure={this.props.selectAdventure} />  
