@@ -11,7 +11,7 @@ const StaticNavEntry = (props) => {
     transitionDuration: `500ms`,
     transitionTiming: `ease-in`,
     transitionDelay: 0,
-    padding: "8git apx",
+    padding: "8px",
   }
   
   const transStyle = {...itemStyle};
