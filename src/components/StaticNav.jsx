@@ -26,7 +26,7 @@ class StaticNav extends React.Component {
     this.state = {
       renderFlip : false,
       cartCount: 0,
-      cartStyle: cartStyle, // This is a good line to look at for bugs, especially the evaluation.
+      cartStyle: cartStyle,
     }
   }
   // Methods:

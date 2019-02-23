@@ -38,9 +38,6 @@ class App extends React.Component {
 
   }
 
-  toggleList() {
-    this.state.showList ? this.setState({showList: false}) : this.setState({showList: true})
-  }
   render(){
     document.body.style.margin = "0";
     const pageStyle = {
@@ -54,7 +51,6 @@ class App extends React.Component {
             {...this.state}
             // populate={this.populate}
             selectAdventure={this.selectAdventure.bind(this)}
-            toggleList={this.toggleList.bind(this)}
         />
       </div>
     )
