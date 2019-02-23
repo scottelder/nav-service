@@ -26,6 +26,7 @@ class StaticNav extends React.Component {
     this.state = {
       renderFlip : false,
       cartCount: 0,
+      cartItems: {},
       cartStyle: cartStyle,
     }
   }
@@ -34,11 +35,17 @@ class StaticNav extends React.Component {
     this.setState({renderFlip: !this.state.renderFlip})
   }
   componentDidMount() {
+    //Add to Cart
     window.addEventListener('addToCart', (event) => {
-      //event.detail is item ID
-      this.setState({cartCount: this.state.cartCount + 1})
+      //event.detail is the item's ID
+      this.setState({
+        cartCount: this.state.cartCount + 1, 
+        cartItems: this.state.cartItems[event.detail] = 0 || this.state.cartItems[event.detail] + 1
+      })
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
     }, false)
+
+    // There is no removeFromCart button/function.
     window.addEventListener('removeFromCart', (event) => {
       this.setState({cartCount: this.state.cartCount - 1})
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
