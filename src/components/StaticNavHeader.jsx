@@ -55,7 +55,7 @@ class StaticNavHeader extends React.Component {
   componentDidMount() {
     // This invocation is delayed to give the asynchronous call to the
     // database a chance to complete before running itself.
-    setTimeout(this.categorizeAdventures.bind(this), 50)
+    setTimeout(this.categorizeAdventures.bind(this), 150)
   };
 
   componentDidUpdate(prevProps) {
