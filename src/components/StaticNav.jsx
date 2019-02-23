@@ -64,7 +64,7 @@ class StaticNav extends React.Component {
               />
             )
           : null }
-        <ShoppingCart cartItems={this.state.cartItems} cartStyle={this.state.cartStyle} />
+        <ShoppingCart cartItems={this.state.cartItems} cartStyle={this.state.cartStyle} photos={this.props.photos} />
       </header>
     )
   }

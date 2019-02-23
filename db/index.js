@@ -43,7 +43,7 @@ const insertAdventures = (adventures, callback) => {
 
 //Finds all adventures and returns their id and title
 const findAdventures = (callback) => {
-  Adventure.find({}).select('id title catagory -_id').exec((err, data) => { // sic.
+  Adventure.find({}).select('id title catagory image_URL -_id').exec((err, data) => { // sic.
     if (err) callback(err, null)
     else callback(null, data)
   })
@@ -57,13 +57,6 @@ const findHeaders = (callback) => {
   })
 };
 
-//Finds all photos and returns their id and image URL
-const findPhotos = (callback) => {
-  Adventure.find({}).select('id image_URL -_id').exec((err, data) => {
-    if (err) callback(err, null)
-    else callback(null, data)
-  })
-};
 
 //Finds if anything we're expecting to be in the DB is not, in fact, in the DB.
 const findMissing = (callback) => {
@@ -82,4 +75,3 @@ module.exports.insertHeaders = insertHeaders;
 module.exports.findAdventures = findAdventures;
 module.exports.findHeaders = findHeaders;
 module.exports.findMissing = findMissing;
-module.exports.findPhotos = findPhotos;

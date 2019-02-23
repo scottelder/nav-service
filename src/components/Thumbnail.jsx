@@ -3,13 +3,13 @@ import React from 'react';
 const Thumbnail = (props) => {
 
   const thumbStyle = {
-    maxHeight: '48px',
-    maxWidth: '48px'
+    height: '32px',
+    width: '32px'
   }
 
   return (
     <div>
-      <img style={thumbStyle} src={props.images.length ? props.images[Math.floor(props.images.length * Math.random())].image_URL : null}></img>
+      <img style={thumbStyle} src={props.photos.length ? props.photos[Math.floor(props.photos.length * Math.random())].image_URL : null}></img>
     </div>
   )
 }

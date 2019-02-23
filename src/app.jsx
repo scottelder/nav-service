@@ -38,27 +38,20 @@ class App extends React.Component {
       .then((res) => this.setState({ adventures: res.data }) )
       .catch((err) => console.log(err));
 
-    Axios.get('/photos')
-      .then((res) => this.setState({ photos: res.data }))
-      .then(() => console.log(this.state.photos, 'STATEFUL PHOTOS'))
-      .catch((err) => console.log(err))
   }
 
   render(){
+    // Completely eliminates default HTML border:
     document.body.style.margin = "0";
-    const pageStyle = {
-      overflow: "hidden",
-      margin: 0,
-    };
 
     return(
-      <div style={pageStyle}>
+      <div>
         <StaticNav 
             {...this.state}
             // populate={this.populate}
             selectAdventure={this.selectAdventure.bind(this)}
         />
-        <Thumbnail images={this.state.photos} />
+        <Thumbnail photos={this.state.adventures} />
       </div>
     )
   }

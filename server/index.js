@@ -22,13 +22,6 @@ app.get('/adventures', (req, res) => {
   })
 })
 
-app.get('/photos', (req, res) => {
-  db.findPhotos((err, data) => {
-    if (err) console.log(err)
-    else res.send(data)
-  })
-})
-
 // app.post('/populate', (req, res) => {
 //   let payload = req.body;
 //   // console.log(payload) 
