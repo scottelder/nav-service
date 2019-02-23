@@ -6,6 +6,7 @@ const StaticNavList = (props) => {
     position: "fixed",
     backgroundColor: "#242121",
     listStyle: "none",
+    borderRadius: '8px',
     transitionProperty: `opacity`,
     transitionDuration: `200ms`,
     transitionTiming: `ease-in`,
