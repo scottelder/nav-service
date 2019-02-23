@@ -9,7 +9,7 @@ const Thumbnail = (props) => {
 
   return (
     <div>
-      <img style={thumbStyle} src={props.photos.length ? props.photos[Math.floor(props.photos.length * Math.random())].image_URL : null}></img>
+      <img style={thumbStyle} src={props.adventures.length ? props.adventures[Math.floor(props.adventures.length * Math.random())].image_URL : null}></img>
     </div>
   )
 }
