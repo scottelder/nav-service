@@ -27,11 +27,15 @@ class StaticNav extends React.Component {
       cartCount: 0,
       cartItems: {},
       cartStyle: cartStyle,
+      renderCart: false,
     }
   }
   // Methods:
   unRender() {
     this.setState({renderFlip: !this.state.renderFlip})
+  }
+  cartRender() {
+    this.setState({ rendercart: !this.state.renderCart })
   }
   componentDidMount() {
     //Add to Cart
@@ -64,7 +68,13 @@ class StaticNav extends React.Component {
               />
             )
           : null }
-        <ShoppingCart cartItems={this.state.cartItems} cartStyle={this.state.cartStyle} photos={this.props.photos} />
+        <ShoppingCart 
+          cartItems={this.state.cartItems} 
+          cartStyle={this.state.cartStyle} 
+          photos={this.props.photos}
+          renderCart={this.state.renderCart}
+          unRender={this.unRender.bind(this)}
+        />
       </header>
     )
   }

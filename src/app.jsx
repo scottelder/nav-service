@@ -50,7 +50,7 @@ class App extends React.Component {
             // populate={this.populate}
             selectAdventure={this.selectAdventure.bind(this)}
         />
-        {/* <Thumbnail adventures={this.state.adventures} /> */}
+        <Thumbnail adventures={this.state.adventures} />
       </div>
     )
   }
