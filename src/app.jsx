@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import StaticNav from './components/StaticNav.jsx';
+import Thumbnail from './components/Thumbnail.jsx';
 import Axios from 'axios';
 import Router from 'react-router-dom'; //used to route to different compononents without refresh -- stretch add
 
@@ -10,8 +11,9 @@ class App extends React.Component {
     this.state = {
       categories: [],
       adventures: [],
+      photos: [],
       showList: false,
-      showEntry: false
+      showEntry: false,
     }
   }
 
@@ -29,13 +31,17 @@ class App extends React.Component {
 
   componentDidMount() {
     Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/headers')
-      .then((res) => this.setState({ categories: res.data }) ) // <--------sic.
+      .then((res) => this.setState({ categories: res.data }) )
       .catch((err) => console.log(err));
 
     Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/adventures')
       .then((res) => this.setState({ adventures: res.data }) )
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
 
+    Axios.get('/photos')
+      .then((res) => this.setState({ photos: res.data }))
+      .then(() => console.log(this.state.photos, 'STATEFUL PHOTOS'))
+      .catch((err) => console.log(err))
   }
 
   render(){
@@ -52,6 +58,7 @@ class App extends React.Component {
             // populate={this.populate}
             selectAdventure={this.selectAdventure.bind(this)}
         />
+        <Thumbnail images={this.state.photos} />
       </div>
     )
   }

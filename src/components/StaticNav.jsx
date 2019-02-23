@@ -14,7 +14,6 @@ const navStyle = {
 const cartStyle = {
   height: '36px',
   width: '32px',
-  flexGrow: 2,
   color: "#f6f5f3",
 }
 const fullCartStyle = {...cartStyle}
@@ -65,7 +64,7 @@ class StaticNav extends React.Component {
               />
             )
           : null }
-        <ShoppingCart testProp={'the word Prop'} cartStyle={this.state.cartStyle} />
+        <ShoppingCart cartItems={this.state.cartItems} cartStyle={this.state.cartStyle} />
       </header>
     )
   }

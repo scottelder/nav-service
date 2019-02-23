@@ -1,12 +1,9 @@
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('../db/index.js');
 const path = require('path')
+const db = require('../db/index.js');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express();
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/../dist')));
@@ -20,7 +17,14 @@ app.get('/headers', (req, res) => {
 
 app.get('/adventures', (req, res) => {
   db.findAdventures((err, data) => {
-    if (err) (console.log(err))
+    if (err) console.log(err)
+    else res.send(data)
+  })
+})
+
+app.get('/photos', (req, res) => {
+  db.findPhotos((err, data) => {
+    if (err) console.log(err)
     else res.send(data)
   })
 })

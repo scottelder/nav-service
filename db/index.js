@@ -57,6 +57,14 @@ const findHeaders = (callback) => {
   })
 };
 
+//Finds all photos and returns their id and image URL
+const findPhotos = (callback) => {
+  Adventure.find({}).select('id image_URL -_id').exec((err, data) => {
+    if (err) callback(err, null)
+    else callback(null, data)
+  })
+};
+
 //Finds if anything we're expecting to be in the DB is not, in fact, in the DB.
 const findMissing = (callback) => {
   for (let i = 10; i < 101; i++) { 
@@ -74,3 +82,4 @@ module.exports.insertHeaders = insertHeaders;
 module.exports.findAdventures = findAdventures;
 module.exports.findHeaders = findHeaders;
 module.exports.findMissing = findMissing;
+module.exports.findPhotos = findPhotos;
