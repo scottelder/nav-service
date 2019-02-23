@@ -27,7 +27,6 @@ class StaticNav extends React.Component {
       cartCount: 0,
       cartItems: {},
       cartStyle: cartStyle,
-      renderCart: false,
     }
   }
   // Methods:
@@ -71,8 +70,8 @@ class StaticNav extends React.Component {
         <ShoppingCart 
           cartItems={this.state.cartItems} 
           cartStyle={this.state.cartStyle} 
-          photos={this.props.photos}
-          renderCart={this.state.renderCart}
+          renderFlip={this.state.renderFlip}
+          adventures={this.props.adventures}
           unRender={this.unRender.bind(this)}
         />
       </header>
