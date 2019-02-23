@@ -42,13 +42,13 @@ class StaticNav extends React.Component {
       //event.detail is the item's ID
       this.setState({
         cartCount: this.state.cartCount + 1, 
-        cartItems: 
-          this.state.cartItems[event.detail] 
-          ? this.state.cartItems[event.detail] = this.state.cartItems[event.detail] + 1 
-          : this.state.cartItems[event.detail] = 0
       })
+      this.state.cartItems[event.detail] 
+      ? this.state.cartItems[event.detail] = this.state.cartItems[event.detail] + 1 
+      : this.state.cartItems[event.detail] = 0
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
     }, false)
+    cartItems: 
 
     // There is no removeFromCart button/function.
     window.addEventListener('removeFromCart', (event) => {
