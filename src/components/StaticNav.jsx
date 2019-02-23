@@ -44,7 +44,7 @@ class StaticNav extends React.Component {
         cartCount: this.state.cartCount + 1, 
       })
       this.state.cartItems[event.detail] === 0
-      ? this.state.cartItems[event.detail] = this.state.cartItems[event.detail] + 1 
+      ? this.state.cartItems[event.detail]++ 
       : this.state.cartItems[event.detail] = 0
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
     }, false)
