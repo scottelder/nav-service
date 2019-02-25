@@ -23,6 +23,7 @@ const gutsyStyle = {
   flexGrow: 1,
   fontSize: '32px',
   color: '#f45800',
+  paddingLeft: "8px",
   fontFamily: "'Sacramento', light"
 }
 
