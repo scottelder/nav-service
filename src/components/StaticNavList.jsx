@@ -17,15 +17,23 @@ const StaticNavList = (props) => {
 
   return (
     <ul style={listStyle} onMouseLeave={() => { props.fadeListOut(), props.unGlow() } }>
-    {props.adventures.length  
-      ? props.adventures.map((adventure, index) => 
-        <StaticListEntry 
-          key={index} 
-          adventure={adventure} 
-          selectAdventure={props.selectAdventure}
-          unRender={props.unRender}
-        />)
-      : null }
+    {props.cartItems.length 
+      ? props.cartItems.map((item, index) => 
+      <StaticListEntry 
+        key={index} 
+        adventure={item} 
+        selectAdventure={props.selectAdventure}
+        unRender={props.unRender}
+      />)
+      : props.adventures.length  
+        ? props.adventures.map((adventure, index) => 
+          <StaticListEntry 
+            key={index} 
+            adventure={adventure} 
+            selectAdventure={props.selectAdventure}
+            unRender={props.unRender}
+          />)
+        : null }
     </ul>
   )
 }

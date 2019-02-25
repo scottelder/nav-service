@@ -34,7 +34,7 @@ class ShoppingCart extends React.Component {
         </svg>
         <div>
           {this.state.renderDD 
-          ? <StaticNavList adventures={this.props.cartItems} />
+          ? <StaticNavList adventures={this.props.adventures} cartItems={this.props.cartItems} />
           : null }
         </div>
       </div>
