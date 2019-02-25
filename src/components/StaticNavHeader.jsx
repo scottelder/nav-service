@@ -3,8 +3,8 @@ import StaticNavList from './StaticNavList.jsx'
 
 const flexStyle = {
   flexGrow : "1",
-  display: "flex",
-  alignItems: "center"
+  // display: "flex",
+  // alignItems: "center"
 }
 
 const buttStyle = {
