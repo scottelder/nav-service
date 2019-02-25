@@ -17,7 +17,7 @@ const StaticNavList = (props) => {
 
   return (
     <ul style={listStyle} onMouseLeave={() => { props.fadeListOut(), props.unGlow() } }>
-    {props.cartItems.length 
+    {props.cartItems 
       ? props.cartItems.map((item, index) => 
       <StaticListEntry 
         key={index} 
