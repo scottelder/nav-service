@@ -9,7 +9,7 @@ const navStyle = {
   width: "100%",
   height: "2%",
   margin: "0 auto",
-  padding: "30px"
+  padding: "30px 0px"
 }
 const cartStyle = {
   height: '36px',

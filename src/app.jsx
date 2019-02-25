@@ -44,7 +44,7 @@ class App extends React.Component {
     document.body.style.margin = "0";
 
     return(
-      <div>
+      <div style={divStyle}>
         <StaticNav 
             {...this.state}
             // populate={this.populate}
@@ -56,3 +56,7 @@ class App extends React.Component {
   }
 }
 ReactDOM.render(<App />, document.getElementById('nav'))
+
+const divStyle = {
+  width: '100%',
+}
