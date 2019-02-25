@@ -17,7 +17,14 @@ const cartStyle = {
   color: "#f6f5f3",
 }
 const fullCartStyle = {...cartStyle}
-fullCartStyle.color = "#d9b310";
+fullCartStyle.color = "#f45800";
+
+const gutsyStyle = {
+  flexGrow: 1,
+  fontSize: '32px',
+  color: '#f45800',
+  fontFamily: "'Sacramento', light"
+}
 
 class StaticNav extends React.Component {
   constructor (props) {
@@ -43,9 +50,9 @@ class StaticNav extends React.Component {
       this.setState({
         cartCount: this.state.cartCount + 1, 
       })
-      this.state.cartItems[event.detail] >= 0
-      ? this.state.cartItems[event.detail]++
-      : this.state.cartItems[event.detail] = 0
+      this.state.cartItems[event.detail] === undefined
+      ? (this.state.cartItems[event.detail] = {}, this.state.cartItems[event.detail].count = 0)  // <----- start here!
+      : this.state.cartItems[event.detail].count++
       setTimeout(() => this.setState({cartStyle: this.state.cartCount > 0 ? fullCartStyle : cartStyle}), 0)
     }, false)
     cartItems: 
@@ -59,6 +66,7 @@ class StaticNav extends React.Component {
   render() {
    return (
       <header style={navStyle}>
+      <div style={gutsyStyle}>Gutsy</div>
           {this.props.categories.length 
           ? this.props.categories.map((entry, index) => 
               <StaticNavHeader

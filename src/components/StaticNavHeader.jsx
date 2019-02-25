@@ -19,7 +19,7 @@ const buttStyle = {
 }
 
 const transStyle = {...buttStyle};
-transStyle.color = "#d9b310";
+transStyle.color = "#f45800";
 
 class StaticNavHeader extends React.Component {
   constructor(props) {
