@@ -2,7 +2,9 @@ import React from 'react';
 import StaticNavList from './StaticNavList.jsx'
 
 const flexStyle = {
-  flexGrow : "1"
+  flexGrow : "1",
+  display: "flex",
+  alignItems: "center"
 }
 
 const buttStyle = {
@@ -11,6 +13,7 @@ const buttStyle = {
   fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
   fontSize: "22px",
   cursor: "pointer",
+  margin: "auto",
   // transition: `color 195ms ease-in 0s`,
   transitionProperty: `color`,
   transitionDuration: `150ms`,
@@ -91,3 +94,4 @@ class StaticNavHeader extends React.Component {
   }
 }
 export default StaticNavHeader;
+

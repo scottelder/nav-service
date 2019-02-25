@@ -9,7 +9,11 @@ class ShoppingCart extends React.Component {
       renderDD: false,
       adventures: []
     }
-    this.divStyle = { flexGrow: 1 }
+    this.divStyle = { 
+      flexGrow: 1,  
+      display: "flex",
+      alignItems: "center", 
+    }
 
   }
   componentDidUpdate(prevProps) {

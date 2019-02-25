@@ -21,7 +21,7 @@ fullCartStyle.color = "#f45800";
 
 const gutsyStyle = {
   flexGrow: 1,
-  fontSize: '32px',
+  fontSize: '36px',
   color: '#f45800',
   paddingLeft: "8px",
   fontFamily: "'Sacramento', light"
