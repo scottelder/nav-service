@@ -55,15 +55,13 @@ class StaticNavHeader extends React.Component {
     this.setState({ style: buttStyle })
   }
 
-  componentDidMount() {
-    // setTimeout(this.categorizeAdventures.bind(this), 150)
-    this.categorizeAdventures();
-  };
-
   componentDidUpdate(prevProps) {
     if (this.props.renderFlip !== prevProps.renderFlip) {
       this.setState({renderDD: false});
       this.setState({style: buttStyle});
+    }
+    if (this.props.adventures !== prevProps.adventures) {
+      this.categorizeAdventures();
     }
   }
 
@@ -93,4 +91,3 @@ class StaticNavHeader extends React.Component {
   }
 }
 export default StaticNavHeader;
-
