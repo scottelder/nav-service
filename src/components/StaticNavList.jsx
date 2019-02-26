@@ -3,11 +3,14 @@ import StaticListEntry from './StaticNavEntry.jsx'
 
 const StaticNavList = (props) => {
   const listStyle = {
-    position: "fixed",
+    position: "absolute",
+    margin: 0,
+    padding: '0.25em',
+    zIndex: "999",
     backgroundColor: "#242121",
     listStyle: "none",
     borderRadius: '8px',
-    boxShadow: '0 3px 3px 0',
+    boxShadow: '0 3px 3px 0 black',
     //The following props aren't currently used.
     transitionProperty: `opacity`,
     transitionDuration: `200ms`,

@@ -3,6 +3,7 @@ import React from 'react';
 const StaticNavEntry = (props) => {
   const itemStyle = {
     color: "white",
+    margin: 0,
     fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
     fontSize: "22px",
     cursor: "pointer",
